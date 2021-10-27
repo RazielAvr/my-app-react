@@ -13,12 +13,19 @@ combineReducers({
         
         switch(action.type){
             case mutations.CREATE_TASK:
-                console.log(action);
+                //console.log(action);
+                return [...tasks, {
+                    id:action.taskID,
+                    name:"New Task",
+                    group:action.groupID,
+                    owner:action.ownerID,
+                    isComplete: false
+                }]
         }
         return tasks;
     },
-    commennts(commennts = defaultState.comments){
-        return commennts;
+    comments(comments = defaultState.comments){
+        return comments;
     },
     groups(groups = defaultState.groups){
         return groups;
