@@ -5,7 +5,7 @@ import { ConnectedDashboard } from './Dashboard'
 import { Router, Route } from 'react-router-dom';
 import { history } from '../store/history';
 import { ConnectedNavigation} from './Navigation'
-import { ConnectTaskDetail } from './TaskDetail';
+import { ConnectedTaskDetail } from './TaskDetail';
 
 export const Main = () =>(
     <Router history={history}>
@@ -20,7 +20,7 @@ export const Main = () =>(
             <Route
             exact
             path="/task/:id"
-            render={({match})=> (<ConnectTaskDetail match={match}/>)}
+            render={({match})=> (<ConnectedTaskDetail match={match}/>)}
             />
         </div>
     </Provider>

@@ -26,7 +26,7 @@ export const defaultState = {
         id:"T1",
         group:"G1",
         owner:"U1",
-        isComplete:false,
+        isComplete:true,
     },{
         name:"Meet with CTO",
         id:"T2",
@@ -38,7 +38,7 @@ export const defaultState = {
         id:"T3",
         group:"G2",
         owner:"U2",
-        isComplete:false,
+        isComplete:true,
     },{
         name:"Update component snapshots",
         id:"T4",
@@ -50,7 +50,7 @@ export const defaultState = {
         id:"T5",
         group:"G3",
         owner:"U1",
-        isComplete:false,
+        isComplete:true,
     }],
     comments:[{
         owner:"U1",
