@@ -8,7 +8,7 @@ const LoginComponent = ({authenticateUser, authenticated}) =>{
         Please login
         </h2>
         <form onSubmit={authenticateUser}>
-            <input type="text" placeholder="username" name="username" defaulvalue="Dev"/>
+            <input type="text" placeholder="username" name="username"  defaulvalue="Dev"/>
             <input type="password" placeholder="password" name="password" defaulvalue=""/>
             {authenticated === mutations.NOT_AUTHENTICATED ? <p>Login Incorrect</p> : null}
             <button type="submit">Login</button>
