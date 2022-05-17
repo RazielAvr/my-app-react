@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import {v4 as uuid} from 'uuid';
 import md5 from 'md5';
 import { connectDB } from './connect-db';
 
@@ -20,7 +20,7 @@ async function assembleUserState(user){
 
 }
 
-const authenticationRoute = app =>{
+export const authenticationRoute = app =>{
     app.post('/authenticate',async (req,res)=>{
         let {username, password} = req.body;
         let db = await connectDB();
