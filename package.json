@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
+    "start": "npm run server",
     "dev": "webpack-dev-server --open chrome",
     "initialize": "babel-node src/server/initialize-db",
     "server": "babel-node src/server/server",
@@ -32,6 +33,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "aws-sdk": "^2.1139.0",
     "axios": "^0.18.0",
     "history": "^4.7.2",
     "md5": "^2.3.0",

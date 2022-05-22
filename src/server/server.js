@@ -4,8 +4,11 @@ import bodyParser from 'body-parser';
 import { connectDB } from './connect-db';
 import './initialize-db';
 import { authenticationRoute } from './authenticate';
+import path from 'path';
 
-let port = 7777;
+
+let port = process.env.PORT || 7777;
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 let app = express();
 
 app.listen(port, console.log("Server listening on port", port));
@@ -21,6 +24,13 @@ app.use(
 );
 
 authenticationRoute(app);
+
+if(process.env.NODE_ENV == `production`){
+    app.use(express.static(path.resolve(__dirname,`../../dist`)));
+    app.get('/*',(req,res) =>{
+        res.sendFile(path.resolve('index.html'));
+    });
+}
 
 export const addNewTask = async task =>{
     let db = await connectDB();
