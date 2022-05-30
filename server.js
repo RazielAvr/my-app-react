@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 // eslint-disable-next-line no-unused-vars
 // const bodyParser = require('body-parser');
 const path = require("path");
