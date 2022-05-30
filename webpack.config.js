@@ -12,8 +12,7 @@ module.exports = {
         extensions:['.js','.jsx']
     },
     devServer:{
-        historyApiFallback:true,
-        open:'chrome' 
+        historyApiFallback:true 
     },
     module:{
         rules:[{
