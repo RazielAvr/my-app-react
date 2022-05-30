@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { connectDB } from './connect-db';
-import './initialize-db';
-import { authenticationRoute } from './authenticate';
+import { connectDB } from '../server/connect-db';
+import '../server/initialize-db';
+import { authenticationRoute } from '../server/authenticate';
 import path from 'path';
 
 

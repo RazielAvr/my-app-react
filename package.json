@@ -14,7 +14,12 @@
     "start-dev": "concurrently \"npm run server\" \"npm run dev\"",
     "heroku-postbuild": "npm install"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "redux",
+    "express",
+    "mongo"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
