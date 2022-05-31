@@ -54,6 +54,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@types/mongodb": "^4.0.7",
     "babel-loader": "^8.0.2",
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
