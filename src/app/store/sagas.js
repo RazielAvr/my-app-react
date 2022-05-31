@@ -63,7 +63,9 @@ export function* userAuthenticationSaga(){
 
         }
         catch(e){
+            
             console.log("can't authenticate");
+            console.log(e);
             yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
         }
     }
