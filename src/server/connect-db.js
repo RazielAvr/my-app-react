@@ -9,24 +9,32 @@ export async function connectDB(){
     if(db){
         return db;
     }
-    let client = await MongoClient.connect(url, {useNewUrlParser: true})
-    .then(() => console.log("Connection Successful"))
-    .catch(err => console.log(err));;
-    try {
-    db = await client.db(DB_NAME);
-    const collection = db.collection(DB_COLLECTION_NAME);
-    const res = await collection.find().toArray();
-    console.log(res);
-    return res
-    }
- catch (err) {
-    console.log(err);
-    return err;    
-}
-finally {
-    console.info("Got DB", db);
-    return db;
-}
+    MongoClient.connect(url, {useNewUrlParser: true}).then(client => {
+        console.log('Connected to MongoDB server')
+    
+        const _db = client.db(DB_NAME);
+    
+        // Here you can place your operations with the bd
+    
+        client.close();
+    }, e => console.log('Error to connect', e))
+//     .then(() => console.log("Connection Successful"))
+//     .catch(err => console.log(err));
+//     try {
+//     db = client.db(DB_NAME);
+//     const collection = db.collection(DB_COLLECTION_NAME);
+//     const res = await collection.find().toArray();
+//     console.log(res);
+//     return res
+//     }
+//  catch (err) {
+//     console.log(err);
+//     return err;    
+// }
+// finally {
+//     console.info("Got DB", db);
+//     return db;
+// }
 
 }
 
