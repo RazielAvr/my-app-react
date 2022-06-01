@@ -9,7 +9,7 @@ export async function connectDB(){
     let client = await MongoClient.connect(url, {useNewUrlParser: true})
     .then(() => console.log("Connection Successful"))
     .catch(err => console.log(err));;
-    db = client.db();
+    db = client.db("myAppReactDB");
     console.info("Got DB", db);
     return db;
 }
