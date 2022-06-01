@@ -22,10 +22,10 @@ export async function connectDB(){
     return err;    
 }
 finally {
-    client.close();
-}
     console.info("Got DB", db);
     return db;
+}
+
 }
 
 //connectDB();
