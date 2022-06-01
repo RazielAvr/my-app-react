@@ -2,7 +2,7 @@ import { MongoClient } from 'mongodb';
 const url = process.env.MONGODB_URI || `mongodb://localhost:27017/myorganizer`;
 let db = null;
 const DB_NAME = 'myAppReactDB';
-const DB_COLLECTION_NAME = 'users';
+const DB_COLLECTION_NAME = "users";
 
 
 export async function connectDB(){
