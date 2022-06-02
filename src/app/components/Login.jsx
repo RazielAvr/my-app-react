@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) =>({
 
     authenticateUser(e){
         e.preventDefault();
+        console.log(e.target[`username`].value);
         let username = e.target[`username`].value;
         let password = e.target[`password`].value;
         dispatch(mutations.requestAuthenticateUser(username,password));
