@@ -2,13 +2,6 @@ import {v4 as uuid} from 'uuid';
 import md5 from 'md5';
 import { connectDB } from './connect-db';
 let client = null;
-module.exports = async (req, res) => {
-    // Get the MongoClient by calling await on the promise.
-    // Because it is a promise, it will only resolve once.
-    client = await clientPromise;
-    // Use the client to return the name of the connected database.
-    res.status(200).json({ dbName: client.db().databaseName });
- }
 
 const authenticationTokens = [];
 
@@ -31,7 +24,7 @@ export const authenticationRoute = app =>{
     app.post('/authenticate',async (req,res)=>{
         console.log(res.body);
         let {username, password} = req.body;
-        let db =  client;
+        let db =  await connectDB();
         let collection = db.collection(`users`);
 
         let user = await collection.findOne({name:username});
