@@ -16,7 +16,7 @@ export async function connectDB(){
     
         // Here you can place your operations with the bd
     
-        console.info("Got DB", _db);
+        console.info("Got DB");
         return _db;
     }, e => console.log('Error to connect', e))
 //     .then(() => console.log("Connection Successful"))
