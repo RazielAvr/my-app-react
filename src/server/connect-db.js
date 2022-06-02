@@ -13,7 +13,7 @@ export async function connectDB(){
         console.log('Connected to MongoDB server')
     
         const _db = client.db(DB_NAME);
-    
+        _db.collections('users').toString();
         // Here you can place your operations with the bd
     
         console.info("Got DB");
