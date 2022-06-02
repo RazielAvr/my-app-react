@@ -17,11 +17,10 @@ let app = express();
 //     res.send("Hello World!!!");
 // });
 
-app.use(
-    cors(),
-    bodyParser.urlencoded({extended: true}),
-    bodyParser.json()
-);
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 app.listen(port, console.log("Server listening on port", port));
 authenticationRoute(app);
 
