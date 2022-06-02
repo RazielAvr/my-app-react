@@ -21,8 +21,8 @@ async function assembleUserState(user){
 }
 
 export const authenticationRoute = app =>{
-    console.log(res.body);
     app.post('/authenticate',async (req,res)=>{
+        console.log(res.body);
         let {username, password} = req.body;
         let db = await connectDB();
         let collection = db.collection(`users`);
