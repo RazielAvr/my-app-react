@@ -22,9 +22,9 @@ async function assembleUserState(user){
 
 export const authenticationRoute = app =>{
     app.post('/authenticate',async (req,res)=>{
+        let db =  await connectDB();
         console.log(res.body);
         let {username, password} = req.body;
-        let db =  await connectDB();
         let collection = db.collection(`users`);
 
         let user = await collection.findOne({name:username});
