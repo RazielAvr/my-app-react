@@ -1,12 +1,11 @@
 import {v4 as uuid} from 'uuid';
 import md5 from 'md5';
 import { connectDB } from './connect-db';
-let client = null;
 
 const authenticationTokens = [];
 
 async function assembleUserState(user){
-    let db = client;
+    let db = await connectDB();
 
     let tasks = await db.collection(`tasks`).find({owner:user.id}).toArray();
     let groups = await db.collection(`groups`).find({owner:user.id}).toArray();
@@ -23,7 +22,7 @@ async function assembleUserState(user){
 export const authenticationRoute = app =>{
     app.post('/authenticate',async (req,res)=>{
         let db =  await connectDB();
-        console.log(res.body);
+        console.log(res.body.username);
         let {username, password} = req.body;
         let collection = db.collection(`users`);
 
@@ -51,5 +50,9 @@ export const authenticationRoute = app =>{
 
         res.send({token,state});
 
-    });
+    }).catch((err) => {
+ 
+        // Printing the error message
+        console.log(err.Message);
+     }, e => console.log(e));
 };
