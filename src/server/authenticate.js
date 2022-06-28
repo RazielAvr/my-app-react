@@ -50,9 +50,5 @@ export const authenticationRoute = app =>{
 
         res.send({token,state});
 
-    }).catch((err) => {
- 
-        // Printing the error message
-        console.log(err.Message);
-     }, e => console.log(e));
+    })
 };
