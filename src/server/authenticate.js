@@ -20,7 +20,7 @@ async function assembleUserState(user){
 
 
 export const authenticationRoute = app =>{
-    try{
+
     app.post('/authenticate',async (req,res)=>{
         let db =  await connectDB();
         console.log(res.body.username);
@@ -52,8 +52,5 @@ export const authenticationRoute = app =>{
         res.send({token,state});
 
     })
-}
-catch(e){
-console.log(e);
-}
+
 };
