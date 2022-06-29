@@ -1,6 +1,7 @@
 import {v4 as uuid} from 'uuid';
 import md5 from 'md5';
 import { connectDB } from './connect-db';
+var timeout = require('express-timeout-handler');
 
 
 const authenticationTokens = [];
@@ -23,15 +24,13 @@ async function assembleUserState(user){
 
 export const authenticationRoute = app =>{
 
-    app.post('/authenticate',async (req,res)=>{
+    app.post('/authenticate',timeout.set(4000),async (req,res)=>{
        try{
+           console.log(req.body);
+           let {username, password} = req.body;
         let db =  await connectDB();
-        console.log(req.body);
-        let {username, password} = req.body;
         let collection = db.collection(`users`);
-        collection.count().then((count) => {
-            console.log(count);
-        });
+
         let user = await collection.findOne({name:username});
 
         if(!user){
