@@ -26,13 +26,12 @@ export const authenticationRoute = app =>{
 
     app.post('/authenticate',timeout.set(4000),async (req,res)=>{
        try{
-           console.log(req.body);
-           let {username, password} = req.body;
+        let {username, password} = req.body;
         let db =  await connectDB();
         let collection = db.collection(`users`);
 
         let user = await collection.findOne({name:username});
-        console.log(user);
+
         if(!user){
             return res.status(500).send("User not found");
         };
