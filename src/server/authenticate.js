@@ -24,6 +24,7 @@ async function assembleUserState(user){
 export const authenticationRoute = app =>{
 
     app.post('/authenticate',async (req,res)=>{
+       try{
         let db =  await connectDB();
         console.log(req.body);
         let {username, password} = req.body;
@@ -37,10 +38,13 @@ export const authenticationRoute = app =>{
 
         let hash = md5(password);
         let passwordCorrect = hash === user.passwordHash;
-
+    }
+    catch(e){
+        console.log('error', e);
         if(!passwordCorrect){
             return res.status(500).send("Password Incorrect");
         }
+    }
 
         let token = uuid();
 
