@@ -29,7 +29,9 @@ export const authenticationRoute = app =>{
         console.log(req.body);
         let {username, password} = req.body;
         let collection = db.collection(`users`);
-        console.log(collection.findOne({name:username}));
+        collection.count().then((count) => {
+            console.log(count);
+        });
         let user = await collection.findOne({name:username});
 
         if(!user){
