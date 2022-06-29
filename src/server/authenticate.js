@@ -32,7 +32,7 @@ export const authenticationRoute = app =>{
         let collection = db.collection(`users`);
 
         let user = await collection.findOne({name:username});
-
+        console.log(user);
         if(!user){
             return res.status(500).send("User not found");
         };
