@@ -14,6 +14,7 @@ export async function connectDB(){
     db = client.db(DB_NAME);
     let user =  db.collection(`users`).findOne({id:"U1"});
     console.log(user);
+    console.info("Got DB");
     return db;
 //     if(db){
 //         return db;
