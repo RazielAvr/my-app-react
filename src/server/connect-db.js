@@ -25,11 +25,11 @@ export async function connectDB(){
 //         console.log('Connected to MongoDB server')
     
 //          db = client.db(DB_NAME);
-        _db.listCollections().toArray(function(err, names) {   
-       if(!err) {
-           //console.log(names)
-           console.info("Got DB");
-       }
+        // _db.listCollections().toArray(function(err, names) {   
+    //    if(!err) {
+    //        //console.log(names)
+    //        console.info("Got DB");
+    //    }
 //         return db;
 //    });
 // }).catch((err) => {
