@@ -12,11 +12,8 @@ export async function connectDB(){
     if (db) return db;
     let client = await MongoClient.connect(url, { useNewUrlParser: true });
     db = client.db(DB_NAME);
-    db.listCollections().toArray(function(err, names) {   
-            console.log(names)
-            console.info("Got DB");
-        
-    });
+    let user =  db.collection(`users`).findOne({id:"U1"});
+    console.log(user);
     return db;
 //     if(db){
 //         return db;
