@@ -11,16 +11,16 @@ export async function connectDB(){
     if(db){
         return db;
     }
-    MongoClient.connect(url, {useNewUrlParser: true}).then(client => {
+    let clientOut = await MongoClient.connect(url, {useNewUrlParser: true}).then(client => {
         console.log('Connected to MongoDB server')
     
-        const _db = client.db(DB_NAME);
+        let _db = client.db(DB_NAME);
         _db.listCollections().toArray(function(err, names) {   
        if(!err) {
-           console.log(names)
+           //console.log(names)
+           console.info("Got DB");
        }
-       console.info("Got DB");
-       return _db;
+    //    return _db;
    });
 }).catch((err) => {
  
@@ -46,7 +46,8 @@ export async function connectDB(){
 //     console.info("Got DB", db);
 //     return db;
 // }
-
+db = clientOut.db();
+return db;
 }
 
 //connectDB();
