@@ -2,7 +2,7 @@
 
 import { MongoClient } from 'mongodb';
 const url = process.env.MONGODB_URI || `mongodb://localhost:27017/myorganizer`;
-const db = null;
+let db = null;
 const DB_NAME = 'myAppReactDB';
 const DB_COLLECTION_NAME = 'users';
 let client;
@@ -11,10 +11,7 @@ let client;
 export async function connectDB(){
     if (db) return db;
     let client = await MongoClient.connect(url, { useNewUrlParser: true });
-    db = client.db(DB_NAME);
-    let user =  db.collection(`users`).findOne({id:"U1"});
-    console.log(user);
-    console.info("Got DB");
+    db = client.db();
     return db;
 //     if(db){
 //         return db;
