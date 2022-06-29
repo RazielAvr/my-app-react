@@ -25,7 +25,7 @@ export const authenticationRoute = app =>{
 
     app.post('/authenticate',async (req,res)=>{
         let db =  await connectDB();
-        console.log(res.body.username);
+        console.log(req.body);
         let {username, password} = req.body;
         let collection = db.collection(`users`);
 
