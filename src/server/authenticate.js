@@ -29,7 +29,7 @@ export const authenticationRoute = app =>{
         console.log(req.body);
         let {username, password} = req.body;
         let collection = db.collection(`users`);
-        db.collection.count();
+        console.log(collection);
         let user = await collection.findOne({name:username});
 
         if(!user){
@@ -37,9 +37,9 @@ export const authenticationRoute = app =>{
         };
 
         let hash = md5(password);
-        let passwordCorrect = hash === user.passwordHash;
     }
     catch(e){
+        let passwordCorrect = hash === user.passwordHash;
         console.log('error', e);
         if(!passwordCorrect){
             return res.status(500).send("Password Incorrect");
