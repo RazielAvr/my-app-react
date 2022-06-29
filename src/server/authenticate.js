@@ -38,14 +38,14 @@ export const authenticationRoute = app =>{
         };
 
         let hash = md5(password);
-    }
-    catch(e){
+    
+    
         let passwordCorrect = hash === user.passwordHash;
-        console.log('error', e);
+        
         if(!passwordCorrect){
             return res.status(500).send("Password Incorrect");
         }
-    }
+    
 
         let token = uuid();
 
@@ -57,6 +57,10 @@ export const authenticationRoute = app =>{
         let state = await assembleUserState(user);
 
         res.send({token,state});
+    }
+    catch(e){
+        console.log('error', e);
+    }
 
     })
 
