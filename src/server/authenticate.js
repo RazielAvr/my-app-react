@@ -2,20 +2,9 @@ import {v4 as uuid} from 'uuid';
 import md5 from 'md5';
 import { connectDB } from './connect-db';
 
-const unhandledRejection = require("unhandled-rejection");
 
 const authenticationTokens = [];
 
-let rejectionEmitter = unhandledRejection({
-    timeout: 20
-});
-rejectionEmitter.on("unhandledRejection", (error, promise) => {
-    loggingServer.registerError(error);
-});
- 
-rejectionEmitter.on("rejectionHandled", (error, promise) => {
-    loggingServer.registerHandled(error);
-});
 
 async function assembleUserState(user){
     let db = await connectDB();
