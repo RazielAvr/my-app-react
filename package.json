@@ -41,7 +41,6 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.2",
-    "unhandled-rejection": "^1.0.0",
     "uuid": "^3.3.2",
     "webpack": "^4.17.2"
   },
