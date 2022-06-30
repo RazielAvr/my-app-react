@@ -8,14 +8,9 @@ import path from 'path';
 
 
 let port = process.env.PORT || 7777;
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 let app = express();
 
 
-
-// app.get('/', (req,res)=>{
-//     res.send("Hello World!!!");
-// });
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,7 +20,7 @@ app.listen(port, console.log("Server listening on port", port));
 authenticationRoute(app);
 
 if(process.env.NODE_ENV == `production`){
-    app.use(express.static(path.resolve(__dirname,'../../dist')));
+    app.use(express.static(path.resolve(__dirname,`../../dist`)));
     app.get('/*',(req,res) =>{
         res.sendFile(path.resolve('index.html'));
     });
