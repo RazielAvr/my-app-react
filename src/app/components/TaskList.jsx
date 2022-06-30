@@ -14,7 +14,7 @@ export const TaskList = ({tasks, name, id, createNewTask})=>(
                 <div className="card p-2 mt-2">{task.name}</div>
             </Link>))}
         </div>        
-        <button onClick={ ()=>createNewTask(id)} className="btn btn-primary btn-block mt-2">Add New</button>
+        <button className="btn btn-primary btn-block mt-2" onClick={ ()=>createNewTask(id)}>Add New</button>
     </div>
 )
 
